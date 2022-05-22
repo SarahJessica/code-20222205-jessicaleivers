@@ -12,6 +12,7 @@ def calculate_bmi(weight, height):
     BMI(kg/m2) = mass(kg) / height(m)2
     '''
     height_m = convert_cm_to_m(height)
+    print(f'height in m {height_m}')
     height_sq = pow(height_m, 2)
     bmi = weight / height_sq
     return round(bmi, 2)
@@ -24,7 +25,7 @@ def find_health_risk(bmi):
         category = 'Underweight'
         risk = 'Malnutrition Risk'
     elif bmi <25:
-        category = 'Normal weight'
+        category = 'Normal Weight'
         risk = 'Low risk'
     elif bmi <30:
         category = 'Overweight'
