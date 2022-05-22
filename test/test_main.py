@@ -1,10 +1,13 @@
 import pytest
 from hamcrest import assert_that, equal_to, is_
 
+
 from src import main
 
+
 def test_calculate_bmi():
-    assert main.calculate_bmi(75,165) == True
+    assert_that(main.calculate_bmi(75, 1.75), is_(equal_to(24.49)))
+
 
 @pytest.mark.parametrize('bmi, category, risk', [
     (5, 'Underweight','Malnutrition Risk'),

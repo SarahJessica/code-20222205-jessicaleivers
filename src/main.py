@@ -1,6 +1,15 @@
+from math import pow
+
 def calculate_bmi(weight, height):
-    # BMI(kg/m2) = mass(kg) / height(m)2
-    return True
+    '''
+    Takes arguments of weight in kg and height in metres.
+    Returns BMI in kg/m^2 using the formula:
+    BMI(kg/m2) = mass(kg) / height(m)2
+    '''
+    height_sq = pow(height, 2)
+    bmi = weight / height_sq
+    return round(bmi, 2)
+
 
 def find_health_risk(bmi):
     category = ''
@@ -28,5 +37,4 @@ def find_health_risk(bmi):
         'category': category,
         'health risk': risk
     }
-
 

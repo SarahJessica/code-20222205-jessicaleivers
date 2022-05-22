@@ -10,7 +10,7 @@ Activate it:
 
 `conda activate bmi`
 
-NB. There are extra packages added by Anaconda that are not required for this project to run.
+NB. There are extra packages added by Anaconda that are not required for this project to run. 
 
 
 ## Running the tests
