@@ -15,4 +15,9 @@ NB. There are extra packages added by Anaconda that are not required for this pr
 
 ## Running the tests
 
-Make sure your `$PYTHONPATH` is set correctly and run the command: `pytest`.
+Make sure your `$PYTHONPATH` is set correctly and run the command: `pytest` from the root of this project.
+
+
+## Observations
+
+Using the ranges given, some BMIs would fall outside of these ranges, for example 29.94, it is greater than 29.9 but less than 30.
