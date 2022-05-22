@@ -1,4 +1,5 @@
 import pytest
+from hamcrest import assert_that, equal_to, is_
 
 from src import main
 
@@ -7,7 +8,10 @@ def test_calculate_bmi():
 
 @pytest.mark.parametrize('bmi, category, risk', [
     (5, 'Underweight','Malnutrition Risk'),
-    (20, 'Normal weight', 'Low risk')
+    (20, 'Normal weight', 'Low risk'),
+    (44, 'Very Severely Obese', 'Very High Risk'),
+    (32, 'Moderately Obese', 'Medium Risk'),
+    (39, 'Severely Obese', 'High Risk')
 ])
 def test_find_health_risk(bmi, category, risk):
     actual = main.find_health_risk(bmi)
@@ -15,4 +19,4 @@ def test_find_health_risk(bmi, category, risk):
         'category': category,
         'health risk': risk
     }
-    assert expected_resp == actual
+    assert_that(expected_resp, is_(equal_to(expected_resp)))
