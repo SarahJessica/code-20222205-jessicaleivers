@@ -1,6 +1,10 @@
 from math import pow
 
 
+from .Category import Category
+from .Risk import Risk
+
+
 def convert_cm_to_m(measurement):
     return measurement / 100
 
@@ -12,36 +16,33 @@ def calculate_bmi(weight, height):
     BMI(kg/m2) = mass(kg) / height(m)2
     '''
     height_m = convert_cm_to_m(height)
-    print(f'height in m {height_m}')
     height_sq = pow(height_m, 2)
     bmi = weight / height_sq
+
     return round(bmi, 2)
 
 
 def find_health_risk(bmi):
-    category = ''
-    risk = ''
+    group = Category.VERY_SEVERE
+    risk = Risk.VERY_SEVERE
     if bmi <= 18.4:
-        category = 'Underweight'
-        risk = 'Malnutrition Risk'
+        group = Category.UNDER
+        risk = Risk.UNDER
     elif bmi <25:
-        category = 'Normal Weight'
-        risk = 'Low risk'
+        group = Category.NORMAL
+        risk = Risk.NORMAL
     elif bmi <30:
-        category = 'Overweight'
-        risk = 'Enhanced Risk'
+        group = Category.OVER
+        risk = Risk.OVER
     elif bmi < 35:
-        category = 'Moderately Obese'
-        risk = 'Medium Risk'
+        group = Category.MODERATE
+        risk = Risk.MODERATE
     elif bmi < 40:
-        category = 'Severely Obese'
-        risk = 'High Risk'
-    else:
-        category = 'Very Severely Obese'
-        risk = 'Very High Risk'
+        group = Category.SEVERE
+        risk = Risk.SEVERE
 
     return {
-        'category': category,
-        'health risk': risk
+        'category': group.value,
+        'health risk': risk.value
     }
 
