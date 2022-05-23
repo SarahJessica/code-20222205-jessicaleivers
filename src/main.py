@@ -13,12 +13,9 @@ def find_overweight_population(file_path='data.json'):
     }
     data = read_json.from_file(file_path)
     for person in data:
-        print(person)
         bmi = calculate_bmi(height=person['HeightCm'], weight=person['WeightKg'])
-        print(bmi)
         risk = find_health_risk(bmi)
         population_info[risk['category']] = population_info[risk['category']] + 1
 
-    print(population_info)
     return population_info
 
